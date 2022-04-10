@@ -21,7 +21,6 @@
 const wallets = ["REPLACE_WITH_YOUR_WALLET"]
 
 // You can decrease the size of some fonts if they're not showing properly (QUICK FIX TO MAKE WIDGET USABLE ON SMALLER PHONES)
-const rewardsTextSize = 26 // Standard: 26
 const rewardsNumberSize = 26 // Standard: 26
 const smallTexts = 10 // Standard: 10
 // Can change this text to "Strong" or "" if "StrongBlock" doesn't fit
