@@ -4,10 +4,10 @@ Download my code and use the widgets directly or use it to create your own widge
 See the [Scriptable Docs](https://docs.scriptable.app/) for documentation.
 
 
-# StrongBlock
+# [StrongBlock](https://github.com/Vincentt1705/scriptable-widgets/tree/main/strongblock)
 Will be a collection housing a few Scriptable Widgets for StrongBlock.  
 
-## [StrongBlock Rewards Widget](https://github.com/Vincentt1705/scriptable-widgets/tree/main/strongblock)
+## StrongBlock Rewards Widget
 iOS Scriptable Widget to see StrongBlock Rewards. (Updated for STRONGER)  
 Shows wallets' STRONGER balance, Node Rewards and the sum of both with the USD value.  
 

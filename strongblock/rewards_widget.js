@@ -6,6 +6,10 @@
  **  iOS Scriptable Widget to see StrongBlock Rewards. (Updated for STRONGER)
  **  Shows Wallets' STRONGER balance, Node Rewards and the sum of both with the USD value.
  **
+ **  NOTE: THIS WAS MADE ON THE IPHONE 13 PRO MAX, SMALLER PHONES MAY EXPERIENCE PROBLEMS
+ **        No updates will be able to be made for a couple of weeks sadly.
+ **  I did put the font size of the rewards amount at the top of the script, you can decrease it if you experience problems.
+ **
  **    Made by Vincentt (https://github.com/Vincentt1705)
  **
  **  For instructions see https://github.com/Vincentt1705/scriptable-widgets/tree/main/strongblock
@@ -15,6 +19,14 @@
 // Add your wallet(s) here. Make sure that you have [" and "] surrounding your wallet address.
 // If you have multiple put them within the brackets with a comma separating the strings; ["wallet1", "wallet2"]
 const wallets = ["REPLACE_WITH_YOUR_WALLET"]
+
+// You can decrease the size of some fonts if they're not showing properly (QUICK FIX TO MAKE WIDGET USABLE ON SMALLER PHONES)
+const rewardsTextSize = 26 // Standard: 26
+const rewardsNumberSize = 26 // Standard: 26
+const smallTexts = 10 // Standard: 10
+// Can change this text to "Strong" or "" if "StrongBlock" doesn't fit
+const strongHeaderText = "StrongBlock" // Standard: "StrongBlock"
+
 
 // Collect data
 let strongblockLogoUrl
@@ -81,7 +93,7 @@ async function addHeader() {
     strongIcon.imageSize = new Size(24, 24)
 
     // Add title
-    const title = headerStack.addText("StrongBlock")
+    const title = headerStack.addText(strongHeaderText)
     title.font = Font.semiboldMonospacedSystemFont(16)
 
     // Place flexible spacer on the right so everything is pushed left
@@ -115,7 +127,7 @@ function addMainContent() {
 
             const walletText = walletTextStack.addText("WALLET")
             walletText.textColor = Color.darkGray()
-            walletText.font = Font.regularMonospacedSystemFont(10)
+            walletText.font = Font.regularMonospacedSystemFont(smallTexts)
             // Add the spacer below the text to push it up
             walletTextStack.addSpacer(2)
 
@@ -144,7 +156,7 @@ function addMainContent() {
         rewardsTextStack.setPadding(0, 0, 0, 0)
 
             const rewardsText = rewardsTextStack.addText("REWARDS")
-            rewardsText.font = Font.regularMonospacedSystemFont(10)
+            rewardsText.font = Font.regularMonospacedSystemFont(smallTexts)
             // Add the spacer below the text to push it up
             rewardsTextStack.addSpacer(4)
 
@@ -155,7 +167,7 @@ function addMainContent() {
         let decimals
         if (strngrRewards > 99.99) {decimals = 1} else {decimals = 2}
         const rewardsAmt = rewardsStack.addText(`${strngrRewards.toFixed(decimals)}`)
-        rewardsAmt.font = Font.semiboldMonospacedSystemFont(26)
+        rewardsAmt.font = Font.semiboldMonospacedSystemFont(rewardsNumberSize)
     }
 
     function addTotals() {
@@ -178,7 +190,12 @@ function addMainContent() {
 
             leftStack.addSpacer() // Center content vertically
             const totalText = leftStack.addText("Total")
-            totalText.font = Font.regularMonospacedSystemFont(12)
+            if (strongHeaderText !== "StrongBlock") {
+                totalText.font = Font.regularMonospacedSystemFont(12)
+            } else {
+                totalText.font = Font.regularMonospacedSystemFont(10)
+            }
+
             totalText.textColor = Color.gray()
             leftStack.addSpacer() // Center content vertically
         }
@@ -213,7 +230,7 @@ function addMainContent() {
                     strngrTextStack.addSpacer()
                     const strngrText = strngrTextStack.addText("STRNGR")
                     strngrText.textColor = Color.darkGray()
-                    strngrText.font = Font.lightMonospacedSystemFont(10)
+                    strngrText.font = Font.lightMonospacedSystemFont(smallTexts)
 
                 // This spacer is in the horizontal stack, from inbetween it pushes the text and amount to the sides
                 strngrStack.addSpacer()
@@ -245,7 +262,7 @@ function addMainContent() {
 
                     const valueText = bottomTextStack.addText("USD")
                     valueText.textColor = Color.darkGray()
-                    valueText.font = Font.lightMonospacedSystemFont(10)
+                    valueText.font = Font.lightMonospacedSystemFont(smallTexts)
                     // Add a spacer below to push the text up
                     bottomTextStack.addSpacer()
 
