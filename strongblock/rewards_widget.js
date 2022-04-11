@@ -18,7 +18,7 @@
 
 // Add your wallet(s) here. Make sure that you have [" and "] surrounding your wallet address.
 // If you have multiple put them within the brackets with a comma separating the strings; ["wallet1", "wallet2"]
-const wallets = ["REPLACE_WITH_YOUR_WALLET"]
+const wallets = ["0x2c7f784aA22E13905A9C973099f913dC77614812"]
 
 // You can decrease the size of some fonts if they're not showing properly (QUICK FIX TO MAKE WIDGET USABLE ON SMALLER PHONES)
 const rewardsNumberSize = 26 // Standard: 26
